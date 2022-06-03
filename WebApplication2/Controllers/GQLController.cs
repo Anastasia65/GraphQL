@@ -54,7 +54,7 @@ namespace WebApplication2.Controllers
         {
             var client = _httpClientFactory.CreateClient(name: "gql");
             var a = await client
-                .PostAsJsonAsync(requestUri: "https://anilist.co/graphiql?query=", value: new { query = " { Character (id:1){id,name{full},gender,dateOfBirth{year month day},age,bloodType,siteUrl}}" });
+                .PostAsJsonAsync(requestUri: "https://graphql.anilist.co/", value: new { query = " { Character (id:1){id,name{full},gender,dateOfBirth{year month day},age,bloodType,siteUrl}}" });
             var result = a.Content.ReadFromJsonAsync<GqlRequest>();
             return result.Result?.data?.Character ?? new Character[] {};
 
