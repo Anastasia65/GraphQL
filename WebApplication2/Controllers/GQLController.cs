@@ -11,7 +11,7 @@ namespace WebApplication2.Controllers
 
     public class Data
     {
-        public Character[] Character { get; set; }
+        public Character Character { get; set; }
     }
 
     public class Character
@@ -50,14 +50,14 @@ namespace WebApplication2.Controllers
 
         [HttpGet(template: "", Name = nameof(GetAllCharacters))]
 
-        public async Task<IEnumerable<Character>> GetAllCharacters()
+        public async Task<Character> GetAllCharacters()
         {
             var client = _httpClientFactory.CreateClient(name: "gql");
+            var query = new { query = "{ Character (id:1){id,name{full},gender,dateOfBirth{year month day},age,bloodType,siteUrl}}" };
             var a = await client
-                .PostAsJsonAsync(requestUri: "https://graphql.anilist.co/", value: new { query = " { Character (id:1){id,name{full},gender,dateOfBirth{year month day},age,bloodType,siteUrl}}" });
-            var result = a.Content.ReadFromJsonAsync<GqlRequest>();
-            return result.Result?.data?.Character ?? new Character[] {};
-
+                .PostAsJsonAsync(requestUri: "https://graphql.anilist.co/", value: query);
+            var result = await a.Content.ReadFromJsonAsync<GqlRequest>();
+            return result.data?.Character ?? new Character {};
         }
     }
 }
