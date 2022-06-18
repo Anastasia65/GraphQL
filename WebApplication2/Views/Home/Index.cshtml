@@ -1,9 +1,31 @@
-﻿@model WebApplication2.Controllers.Character[]
+@model WebApplication2.Controllers.Character
 @{
     ViewData["Title"] = "Home Page";
 }
+<html>
+<head>    
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="wwwroot/css/site.css"/>
+</head>
+<body>
+    <style>
+    table {
+        border: 1px solid #dddddd;
+        border-collapse: collapse;
+        width: 100%;
+    }
 
-<div class="text-center">
+    td, th {
+        border: 1px solid black;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+    </style>
+
+<div class="table">
     <table>
         <tr>
             <td>id</td>
@@ -11,21 +33,20 @@
             <td>gender</td>
             <td>birthdate</td>
             <td>age</td>
-            <td>bloodType</td>
             <td>site</td>
         </tr>
-        @foreach (var Character in Model)
-            {
+
             <tr>
-                <td>@Html.DisplayFor(modelItem=>Character.id)</td>
-                <td>@Html.DisplayFor(modelItem=>Character.name)</td>
-                <td>@Html.DisplayFor(modelItem=>Character.gender)</td>
-                <td>@Html.DisplayFor(modelItem=>Character.dateOfBirth)</td>
-                <td>@Html.DisplayFor(modelItem=>Character.age)</td>
-                <td>@Html.DisplayFor(modelItem=>Character.bloodType)</td>
-                <td>@Html.DisplayFor(modelItem=>Character.siteUrl)</td>
+                <td>@Html.DisplayFor(modelItem=>Model.id)</td>
+                <td>@Html.DisplayFor(modelItem=>Model.name)</td>
+                <td>@Html.DisplayFor(modelItem=>Model.gender)</td>
+                <td>@Html.DisplayFor(modelItem=>Model.dateOfBirth)</td>
+                <td>@Html.DisplayFor(modelItem=>Model.age)</td>
+                <td>@Html.DisplayFor(modelItem=>Model.siteUrl)</td>
             </tr>
-        }
+            
     </table>
   
 </div>
+</body>
+</html>
