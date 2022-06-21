@@ -1,4 +1,4 @@
-﻿@model WebApplication2.Controllers.Character[]
+@model WebApplication2.Controllers.Character
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -23,6 +23,7 @@
     tr:nth-child(even) {
         background-color: #dddddd;
     }
+<<<<<<< HEAD
 
     button {
         margin: 10px;
@@ -38,6 +39,10 @@
     <button>View description</button>
     </form>
 
+=======
+    </style>
+
+>>>>>>> 676cad7658ee381a62600754ec2cca80a967b774
 <div class="table">
     <table>
         <tr>
@@ -48,6 +53,7 @@
             <td>age</td>
             <td>site</td>
         </tr>
+<<<<<<< HEAD
          @foreach (var Character in Model)
             {
             <tr>
@@ -59,8 +65,24 @@
                 <td>@Html.DisplayFor(modelItem=>Character.siteUrl)</td>
             </tr>
             }
+=======
+
+            <tr>
+                <td>@Html.DisplayFor(modelItem=>Model.id)</td>
+                <td>@Html.DisplayFor(modelItem=>Model.name)</td>
+                <td>@Html.DisplayFor(modelItem=>Model.gender)</td>
+                <td>@Html.DisplayFor(modelItem=>Model.dateOfBirth)</td>
+                <td>@Html.DisplayFor(modelItem=>Model.age)</td>
+                <td>@Html.DisplayFor(modelItem=>Model.siteUrl)</td>
+            </tr>
+            
+>>>>>>> 676cad7658ee381a62600754ec2cca80a967b774
     </table>
   
 </div>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 676cad7658ee381a62600754ec2cca80a967b774

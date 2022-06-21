@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿using Microsoft.AspNetCore.Mvc;
+=======
+using Microsoft.AspNetCore.Mvc;
+>>>>>>> 676cad7658ee381a62600754ec2cca80a967b774
 
 namespace WebApplication2.Controllers
 {
@@ -12,7 +16,11 @@ namespace WebApplication2.Controllers
     }
     public class Page
     {
+<<<<<<< HEAD
         public Character[] characters { get; set; }
+=======
+        public Character characters { get; set; }
+>>>>>>> 676cad7658ee381a62600754ec2cca80a967b774
     }
 
     public class Character
@@ -33,8 +41,14 @@ namespace WebApplication2.Controllers
 
     public class Dateofbirth
     {
+<<<<<<< HEAD
         public int? year { get; set; }
         public int? month { get; set; }
         public int? day { get; set; }
+=======
+        public int year { get; set; }
+        public int month { get; set; }
+        public int day { get; set; }
+>>>>>>> 676cad7658ee381a62600754ec2cca80a967b774
     }
 }
