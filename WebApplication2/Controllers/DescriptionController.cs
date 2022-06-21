@@ -6,11 +6,11 @@ using System.Text.Json;
 
 namespace WebApplication2.Controllers
 {
-    public class HomeController : Controller
+    public class DescriptionController : Controller
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger, IHttpClientFactory httpClientFactory)
+        public DescriptionController(ILogger<HomeController> logger, IHttpClientFactory httpClientFactory)
         {
             _logger = logger;
             _httpClientFactory = httpClientFactory;
@@ -21,7 +21,25 @@ namespace WebApplication2.Controllers
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient(name: "gql");
-            var query = new { query = "query {Page(page: 1){characters(id_in: [1,2,3,4,5,6,7]){id name {full} gender dateOfBirth {year month day} age siteUrl}}}" };
+            var query = new { query = @"query {
+                Page(page: 1){
+                characters(id_in: [1, 2, 3, 4, 5, 6, 7]){
+                    id
+                    name {
+                        full
+                    }
+                    gender
+                    dateOfBirth {
+                        year
+                        month
+                      day
+                    }
+                    age
+                    siteUrl
+                  description
+                }
+            }
+        }" };
             var a = await client
                 .PostAsJsonAsync(requestUri: "https://graphql.anilist.co/", value: query);
             var response = await a.Content.ReadAsStringAsync();

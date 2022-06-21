@@ -1,6 +1,6 @@
 ﻿@model WebApplication2.Controllers.Character[]
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Sort Page";
 }
 <html>
 <head>    
@@ -24,20 +24,17 @@
         background-color: #dddddd;
     }
 
-    button {
+        button {
         margin: 10px;
         width: auto;
     }
     </style>
-
-    <form action="/Sort">
-    <button style="float:left">Sort in reverse order</button>
+    <form action="/Home">
+    <button style="float:left">Home</button>
     </form>
-
-        <form action="/Description">
+    <form action="/Description">
     <button>View description</button>
     </form>
-
 <div class="table">
     <table>
         <tr>

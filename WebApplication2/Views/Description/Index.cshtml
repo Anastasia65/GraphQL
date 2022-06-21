@@ -1,6 +1,6 @@
 ﻿@model WebApplication2.Controllers.Character[]
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Description Page";
 }
 <html>
 <head>    
@@ -24,18 +24,17 @@
         background-color: #dddddd;
     }
 
-    button {
+        button {
         margin: 10px;
         width: auto;
     }
     </style>
-
-    <form action="/Sort">
-    <button style="float:left">Sort in reverse order</button>
+    <form action="/Home">
+    <button style="float:left">Home</button>
     </form>
 
-        <form action="/Description">
-    <button>View description</button>
+        <form action="/Sort">
+    <button>Hide description ans sort in reverse order</button>
     </form>
 
 <div class="table">
@@ -43,6 +42,7 @@
         <tr>
             <td>id</td>
             <td>full name</td>
+            <td>description</td>
             <td>gender</td>
             <td>birthdate</td>
             <td>age</td>
@@ -53,6 +53,7 @@
             <tr>
                 <td>@Html.DisplayFor(modelItem=>Character.id)</td>
                 <td>@Html.DisplayFor(modelItem=>Character.name)</td>
+                <td>@Html.DisplayFor(modelItem=>Character.description)</td>
                 <td>@Html.DisplayFor(modelItem=>Character.gender)</td>
                 <td>@Html.DisplayFor(modelItem=>Character.dateOfBirth)</td>
                 <td>@Html.DisplayFor(modelItem=>Character.age)</td>
