@@ -1,0 +1,66 @@
+﻿@model WebApplication2.Controllers.Character[]
+@{
+    ViewData["Title"] = "Home Page";
+}
+<html>
+<head>    
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="wwwroot/css/site.css"/>
+</head>
+<body>
+    <style>
+    table {
+        border: 1px solid #dddddd;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid black;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+
+    button {
+        margin: 10px;
+        width: auto;
+    }
+    </style>
+
+    <form action="/Sort">
+    <button style="float:left">Sort in reverse order</button>
+    </form>
+
+        <form action="/Description">
+    <button>View description</button>
+    </form>
+
+<div class="table">
+    <table>
+        <tr>
+            <td>id</td>
+            <td>full name</td>
+            <td>gender</td>
+            <td>birthdate</td>
+            <td>age</td>
+            <td>site</td>
+        </tr>
+         @foreach (var Character in Model)
+            {
+            <tr>
+                <td>@Html.DisplayFor(modelItem=>Character.id)</td>
+                <td>@Html.DisplayFor(modelItem=>Character.name)</td>
+                <td>@Html.DisplayFor(modelItem=>Character.gender)</td>
+                <td>@Html.DisplayFor(modelItem=>Character.dateOfBirth)</td>
+                <td>@Html.DisplayFor(modelItem=>Character.age)</td>
+                <td>@Html.DisplayFor(modelItem=>Character.siteUrl)</td>
+            </tr>
+            }
+    </table>
+  
+</div>
+</body>
+</html>
