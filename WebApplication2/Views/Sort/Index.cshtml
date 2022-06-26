@@ -1,11 +1,10 @@
-﻿@model WebApplication2.Controllers.Character[]
+﻿@model WebApplication2.Services.Character[]
 @{
     ViewData["Title"] = "Sort Page";
 }
 <html>
 <head>    
     <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" type="text/css" href="wwwroot/css/site.css"/>
 </head>
 <body>
     <style>
@@ -38,6 +37,7 @@
 <div class="table">
     <table>
         <tr>
+@*            <td>image</td>*@
             <td>id</td>
             <td>full name</td>
             <td>gender</td>
@@ -48,6 +48,7 @@
          @foreach (var Character in Model)
             {
             <tr>
+@*                <td><img src ="@Character.image"/></td>*@
                 <td>@Html.DisplayFor(modelItem=>Character.id)</td>
                 <td>@Html.DisplayFor(modelItem=>Character.name)</td>
                 <td>@Html.DisplayFor(modelItem=>Character.gender)</td>

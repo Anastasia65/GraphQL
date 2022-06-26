@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace WebApplication2.Controllers
+namespace WebApplication2.Services
 {
     public class GqlRequest
     {
@@ -17,6 +17,7 @@ namespace WebApplication2.Controllers
 
     public class Character
     {
+        public Image image { get; set; }
         public int id { get; set; }
         public Name name { get; set; }
         public string gender { get; set; }
@@ -25,7 +26,10 @@ namespace WebApplication2.Controllers
         public string siteUrl { get; set; }
         public string description { get; set; }
     }
-
+    public class Image
+    {
+        public string medium { get; set; }
+    }
     public class Name
     {
         public string full { get; set; }
