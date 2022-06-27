@@ -24,6 +24,9 @@ namespace WebApplication2.Controllers
             var a = await client
                 .PostAsJsonAsync(Service.requestUri, value: query);
             var characters = HomeService.Deserialization(a);
+            if (characters == null)
+                throw new Exception("internal server error status code 500");
+            else
             return View(characters.Result);
         }
 
